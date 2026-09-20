@@ -184,7 +184,6 @@ export async function getProductById(id: number) {
                 ])
             ).values(),
         ],
-        availableSizes: [...new Set(variants.map((variant) => variant.size))],
         variants,
     } satisfies ProductDetail;
 }
