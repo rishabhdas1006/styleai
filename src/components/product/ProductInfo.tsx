@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -24,17 +24,6 @@ export default function ProductInfo({
     const navigate = useNavigate();
     const { isAuthenticated } = useAuth();
     const addCartItemMutation = useAddCartItemMutation();
-
-    const initialColor =
-        product.availableColors.find((color) =>
-            product.variants.some(
-                (variant) =>
-                    variant.color === color.hex &&
-                    variant.stock > 0
-            )
-        )?.hex ??
-        product.availableColors[0]?.hex ??
-        "";
 
     const [wishlisted, setWishlisted] = useState(false);
 

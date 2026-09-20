@@ -3,12 +3,14 @@ import type { Product } from "@/types";
 
 interface ProductGridCardProps {
     product: Product;
+    fallbackImage?: string;
 }
 
 export default function ProductGridCard({
-    product
+    product,
+    fallbackImage,
 }: ProductGridCardProps) {
-    const image = product.image;
+    const image = product.image || fallbackImage;
 
     return (
         <Link
